@@ -2,18 +2,16 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig, loadEnv} from 'vite';
-
+// ... existing imports
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    // ... existing code
-    base: '/Apex-Motors./', // <--- ADD THIS LINE HERE
-    
-// ... rest of the code
+    base: '/Apex-Motors/', // <--- ADD THIS LINE EXACTLY
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
+// ... rest of the file
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
